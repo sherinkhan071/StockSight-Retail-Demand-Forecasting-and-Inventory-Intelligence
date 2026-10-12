@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -75,6 +76,35 @@ def display_name(col):
     return str(col).replace("_", " ").strip().title()
 
 
+MANUAL_DATA_FILE = Path(__file__).with_name("stocksight_saved_entries.json")
+MAX_SAVED_ENTRIES = 5
+
+
+def load_saved_entries():
+    """Load up to five saved manual-entry snapshots from disk."""
+    try:
+        if MANUAL_DATA_FILE.exists():
+            payload = json.loads(MANUAL_DATA_FILE.read_text(encoding="utf-8"))
+            entries = payload.get("entries", []) if isinstance(payload, dict) else []
+            return entries[-MAX_SAVED_ENTRIES:] if isinstance(entries, list) else []
+    except (OSError, json.JSONDecodeError, TypeError):
+        st.warning("Saved manual entries could not be read. You can enter and save your data again.")
+    return []
+
+
+def write_saved_entries(entries):
+    """Persist only the five most recent manual-entry snapshots."""
+    MANUAL_DATA_FILE.write_text(
+        json.dumps({"entries": entries[-MAX_SAVED_ENTRIES:]}, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def products_from_saved_entry(entry):
+    rows = entry.get("products", []) if isinstance(entry, dict) else []
+    return pd.DataFrame(rows)
+
+
 def read_uploads(files):
     tables = {}
     for file in files or []:
@@ -146,9 +176,9 @@ with st.sidebar:
     st.caption("Retail intelligence for every business")
     page = st.radio(
         "Workspace",
-        ["Overview", "AI Analyst", "Sales Analysis", "Inventory Health", "Demand Forecast", "Data Explorer"],
+        ["Overview", "Complete Dashboard", "AI Analyst", "Sales Analysis", "Inventory Health", "Demand Forecast", "Data Explorer"],
         index=0,
-        format_func=lambda x: {"Overview":"⌂  Home", "AI Analyst":"◉  AI Assistant", "Sales Analysis":"▥  Sales Analysis", "Inventory Health":"▣  Products & Stock", "Demand Forecast":"↗  Demand Forecast", "Data Explorer":"▤  Data Explorer"}.get(x, x),
+        format_func=lambda x: {"Overview":"⌂  Home", "Complete Dashboard":"▦  Complete Dashboard", "AI Analyst":"◉  AI Assistant", "Sales Analysis":"▥  Sales Analysis", "Inventory Health":"▣  Products & Stock", "Demand Forecast":"↗  Demand Forecast", "Data Explorer":"▤  Data Explorer"}.get(x, x),
         key="stocksight_page",
     )
     st.divider()
@@ -190,7 +220,7 @@ if not st.session_state.get("show_business_setup", False):
           <p>✓ Answer a few simple questions<br>✓ Add products, stock and pricing manually<br>✓ Get recommendations from the information you provide</p>
         </div>
         """, unsafe_allow_html=True)
-        if st.button("Start with business details →", type="primary", use_container_width=True, key="start_business_setup"):
+        if st.button("Start with business details →", type="primary", width="stretch", key="start_business_setup"):
             st.session_state["show_business_setup"] = True
             st.rerun()
         st.caption("No CSV file or technical skills needed.")
@@ -209,6 +239,16 @@ if not st.session_state.get("show_business_setup", False):
     st.markdown("<div class='ss-note'>✨ <b>You're in control.</b> Whether you upload a file or enter details manually, StockSight works with the information you choose to provide.</div>", unsafe_allow_html=True)
 
 uploaded = read_uploads(uploads) if uploads else {}
+
+# ---------- Persistent manual business entries ----------
+saved_entries = load_saved_entries()
+# Restore the most recently saved entry after a page refresh/new Streamlit session.
+if (not uploaded and "manual_products" not in st.session_state
+        and not st.session_state.get("start_new_entry", False) and saved_entries):
+    latest_products = products_from_saved_entry(saved_entries[-1])
+    if not latest_products.empty:
+        st.session_state["manual_products"] = latest_products
+        st.session_state["product_entry_table"] = latest_products.copy()
 
 # ---------- No-CSV onboarding: manual business setup ----------
 if not uploaded and "manual_products" in st.session_state:
@@ -240,9 +280,11 @@ if not uploaded:
         {"product_name": "", "category": "", "current_stock": 0, "reorder_point": 0, "units_sold_30d": 0, "selling_price": 0.0, "unit_cost": 0.0},
         {"product_name": "", "category": "", "current_stock": 0, "reorder_point": 0, "units_sold_30d": 0, "selling_price": 0.0, "unit_cost": 0.0},
     ])
+    # Keep the editor prefilled with the most recently saved values after refresh.
+    editor_default = st.session_state.get("product_entry_table", st.session_state.get("manual_products", starter))
     edited_products = st.data_editor(
-        st.session_state.get("product_entry_table", starter),
-        num_rows="dynamic", use_container_width=True, hide_index=True,
+        editor_default,
+        num_rows="dynamic", width="stretch", hide_index=True,
         column_config={
             "product_name": st.column_config.TextColumn("Product name", help="Required"),
             "category": st.column_config.TextColumn("Category"),
@@ -264,7 +306,24 @@ if not uploaded:
             for col in ["current_stock", "reorder_point", "units_sold_30d", "selling_price", "unit_cost"]:
                 valid_products[col] = pd.to_numeric(valid_products[col], errors="coerce").fillna(0)
             valid_products["category"] = valid_products["category"].fillna("").astype(str)
+            # Save a separate snapshot on each submission, keeping at most five.
+            snapshots = load_saved_entries()
+            from datetime import datetime
+            snapshot = {
+                "saved_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+                "products": json.loads(valid_products.to_json(orient="records", date_format="iso")),
+            }
+            snapshots.append(snapshot)
+            try:
+                write_saved_entries(snapshots)
+            except OSError as exc:
+                st.error(f"Could not save your data to disk: {exc}")
+                st.stop()
             st.session_state["manual_products"] = valid_products
+            st.session_state["product_entry_table"] = valid_products.copy()
+            st.session_state["start_new_entry"] = False
+            st.session_state["saved_entry_count"] = min(len(snapshots), MAX_SAVED_ENTRIES)
+            st.success(f"Saved successfully. StockSight keeps your {MAX_SAVED_ENTRIES} most recent entries; older entries are replaced when the limit is reached.")
             st.rerun()
     st.markdown("#### What you'll be able to explore")
     c1, c2, c3 = st.columns(3)
@@ -275,9 +334,19 @@ if not uploaded:
 
 st.success(f"Loaded {len(uploaded)} dataset(s): " + ", ".join(uploaded.keys()))
 if "manual_products" in st.session_state and not uploads:
-    st.caption("You're using manually entered business information. Sales figures represent the last 30 days you entered, not a connected live system.")
-    if st.button("Edit my manually entered products"):
-        del st.session_state["manual_products"]
+    st.caption(f"Your manually entered business information is saved on this machine. {len(load_saved_entries())} of {MAX_SAVED_ENTRIES} saved entries are retained. Sales figures represent the last 30 days you entered, not a connected live system.")
+    if st.button("＋ New entry", type="primary", key="start_new_manual_entry"):
+        # Explicitly start a blank entry instead of restoring the latest snapshot.
+        st.session_state["start_new_entry"] = True
+        st.session_state.pop("manual_products", None)
+        st.session_state.pop("product_entry_table", None)
+        st.session_state.pop("product_entry_table_widget", None)
+        st.rerun()
+    if st.button("Edit my manually entered products", key="edit_saved_manual_products"):
+        st.session_state["start_new_entry"] = True
+        st.session_state.pop("manual_products", None)
+        st.session_state.pop("product_entry_table", None)
+        st.session_state.pop("product_entry_table_widget", None)
         st.rerun()
 
 # ---------- Dataset selection ----------
@@ -646,7 +715,7 @@ For general knowledge, definitions, brainstorming, and general business advice, 
 
     try:
         response = requests.post(
-            "http://localhost:11434/api/generate",
+            f"{os.getenv('STOCKSIGHT_OLLAMA_URL', 'http://localhost:11434').rstrip('/')}/api/generate",
             json={
                 "model": "llama3.2:3b",
                 "prompt": prompt,
@@ -658,7 +727,7 @@ For general knowledge, definitions, brainstorming, and general business advice, 
         response.raise_for_status()
         answer = response.json().get("response", "").strip()
     except requests.exceptions.ConnectionError as exc:
-        raise RuntimeError("Cannot connect to Ollama. Open the Ollama app and try again.") from exc
+        raise RuntimeError("Cannot connect to Ollama. Locally, open the Ollama app. For hosted deployments, set STOCKSIGHT_OLLAMA_URL to a reachable Ollama base URL, or disable the AI Analyst.") from exc
     except requests.exceptions.Timeout as exc:
         raise RuntimeError("Ollama took too long to respond. Please try again.") from exc
     except requests.exceptions.RequestException as exc:
@@ -675,11 +744,11 @@ if page == "AI Analyst":
     st.header("🤖 AI Business Analyst")
     st.write(
         "Ask questions about your uploaded retail data in plain English. "
-        "StockSight calculates summaries locally and uses Ollama running on your computer to answer."
+        "StockSight calculates summaries locally and uses Ollama to answer. Configure STOCKSIGHT_OLLAMA_URL for a hosted Ollama service when deploying."
     )
     st.info(
-        "Privacy note: the model runs locally through Ollama. This feature sends the question "
-        "and aggregate data summaries to your local Ollama service, not to OpenAI."
+        "Privacy note: the question and aggregate data summaries are sent to the Ollama endpoint configured by STOCKSIGHT_OLLAMA_URL. "
+        "If unset, the app uses http://localhost:11434. Do not send sensitive data to an endpoint you do not control."
     )
 
     if sales_filtered is None and inventory is None:
@@ -694,7 +763,7 @@ if page == "AI Analyst":
         if not quick.empty:
             quick = quick.rename(columns={"product": "Product", "revenue": "Revenue"})
             quick.insert(0, "Rank", range(1, len(quick) + 1))
-            st.dataframe(quick, use_container_width=True, hide_index=True)
+            st.dataframe(quick, width="stretch", hide_index=True)
         else:
             st.caption("Map a product field and a revenue field to see the top-product ranking.")
 
@@ -708,7 +777,7 @@ if page == "AI Analyst":
     suggestion_cols = st.columns(2)
     for idx, suggestion in enumerate(suggestions):
         with suggestion_cols[idx % 2]:
-            if st.button(suggestion, key=f"analyst_suggestion_{idx}", use_container_width=True):
+            if st.button(suggestion, key=f"analyst_suggestion_{idx}", width="stretch"):
                 st.session_state["analyst_question_input"] = suggestion
 
     if "analyst_messages" not in st.session_state:
@@ -756,8 +825,7 @@ if page == "AI Analyst":
 elif page == "Overview":
     st.header("Business overview")
     if sales_filtered is None and inventory is None:
-        show_empty_state("Choose a sales or inventory dataset in Dataset setup to see business metrics.")
-        st.stop()
+        st.info("No external sales or inventory file is selected. Your saved manual product entries will still appear in the dashboard below.")
 
     total_revenue = numeric(sales_filtered, sales_revenue).sum(min_count=1) if sales_filtered is not None and sales_revenue else np.nan
     total_units = numeric(sales_filtered, sales_qty).sum(min_count=1) if sales_filtered is not None and sales_qty else np.nan
@@ -814,12 +882,225 @@ elif page == "Overview":
     st.subheader("Explore the filtered sales")
     if sales_filtered is not None:
         st.caption(f"Showing {len(sales_filtered):,} sales rows after filters.")
-        st.dataframe(sales_filtered.head(500), use_container_width=True, hide_index=True)
+        st.dataframe(sales_filtered.head(500), width="stretch", hide_index=True)
         st.download_button(
             "⬇️ Download filtered sales CSV",
             sales_filtered.to_csv(index=False).encode("utf-8"),
             "stocksight_filtered_sales.csv", "text/csv", key="overview_download",
         )
+
+    # Inline dashboard: this is intentionally on the Home / Overview page.
+    st.divider()
+    st.header("Complete Dashboard")
+    st.caption("All charts and tables for the product entries you saved, in one place.")
+    saved_dashboard_entries = load_saved_entries()
+    saved_product_rows = []
+    for saved_entry in saved_dashboard_entries:
+        saved_product_rows.extend(saved_entry.get("products", []) if isinstance(saved_entry, dict) else [])
+    manual_df = pd.DataFrame(saved_product_rows)
+
+    if not manual_df.empty:
+        st.subheader("Your entered products")
+        st.caption(f"{len(manual_df):,} product records across your {len(saved_dashboard_entries)} most recent saved submissions.")
+        st.dataframe(manual_df, width="stretch", hide_index=True)
+
+        # Use recognized numeric columns from the manually entered product table.
+        manual_cols = {str(c).strip().lower(): c for c in manual_df.columns}
+        def _find_manual_col(candidates):
+            for candidate in candidates:
+                for low_name, original_name in manual_cols.items():
+                    if candidate in low_name:
+                        return original_name
+            return None
+        manual_name_col = _find_manual_col(["product name", "product", "item name", "item"])
+        manual_category_col = _find_manual_col(["category", "type"])
+        manual_qty_col = _find_manual_col(["quantity", "units", "stock", "inventory"])
+        manual_price_col = _find_manual_col(["selling price", "unit price", "price", "revenue", "amount"])
+        numeric_qty = pd.to_numeric(manual_df[manual_qty_col].astype(str).str.replace(r"[^0-9.\-]", "", regex=True), errors="coerce") if manual_qty_col else None
+        numeric_price = pd.to_numeric(manual_df[manual_price_col].astype(str).str.replace(r"[^0-9.\-]", "", regex=True), errors="coerce") if manual_price_col else None
+
+        if numeric_qty is not None or numeric_price is not None:
+            mcols = st.columns(3)
+            mcols[0].metric("Saved product records", f"{len(manual_df):,}")
+            if numeric_qty is not None:
+                mcols[1].metric("Total units / stock", f"{numeric_qty.sum(min_count=1):,.0f}" if numeric_qty.notna().any() else "—")
+            else:
+                mcols[1].metric("Total units / stock", "—")
+            if numeric_price is not None:
+                mcols[2].metric("Sum of price / amount", f"{numeric_price.sum(min_count=1):,.2f}" if numeric_price.notna().any() else "—")
+            else:
+                mcols[2].metric("Sum of price / amount", "—")
+
+        chart_cols = st.columns(2, gap="large")
+        with chart_cols[0]:
+            st.markdown("**Products by category**")
+            if manual_category_col:
+                st.bar_chart(manual_df[manual_category_col].fillna("Uncategorised").value_counts(), y_label="Products")
+            else:
+                st.info("A category field is not present in the saved product entries.")
+        with chart_cols[1]:
+            st.markdown("**Top products by quantity / stock**")
+            if manual_name_col and numeric_qty is not None and numeric_qty.notna().any():
+                qty_chart = pd.DataFrame({"Product": manual_df[manual_name_col].astype(str), "Quantity / stock": numeric_qty})
+                qty_chart = qty_chart.groupby("Product")["Quantity / stock"].sum().sort_values(ascending=False).head(10)
+                st.bar_chart(qty_chart, y_label="Quantity / stock")
+            else:
+                st.info("A product name and numeric quantity or stock field are needed for this chart.")
+        if manual_name_col and numeric_price is not None and numeric_price.notna().any():
+            st.markdown("**Top products by price / amount**")
+            price_chart = pd.DataFrame({"Product": manual_df[manual_name_col].astype(str), "Price / amount": numeric_price})
+            price_chart = price_chart.groupby("Product")["Price / amount"].sum().sort_values(ascending=False).head(10)
+            st.bar_chart(price_chart, y_label="Price / amount")
+        st.download_button(
+            "Download all saved product entries (CSV)",
+            manual_df.to_csv(index=False).encode("utf-8"),
+            "stocksight_saved_products_dashboard.csv", "text/csv", key="overview_manual_dashboard_download"
+        )
+    else:
+        st.info("No saved manual product entries were found yet. Enter products and click “Save products and open my business dashboard”; this section will then display their data and charts.")
+
+
+# ---------- Complete business dashboard ----------
+elif page == "Complete Dashboard":
+    st.header("Complete Dashboard")
+    st.caption("All key information from the products and sales you entered, together in one place.")
+
+    if sales_filtered is None and inventory is None:
+        show_empty_state("Add and save product details, or select your sales and inventory files, to populate this dashboard.")
+        st.stop()
+
+    revenue_values = numeric(sales_filtered, sales_revenue) if sales_filtered is not None and sales_revenue else pd.Series(dtype=float)
+    quantity_values = numeric(sales_filtered, sales_qty) if sales_filtered is not None and sales_qty else pd.Series(dtype=float)
+    total_revenue = revenue_values.sum(min_count=1) if not revenue_values.empty else np.nan
+    total_units = quantity_values.sum(min_count=1) if not quantity_values.empty else np.nan
+    avg_sale = revenue_values.mean() if not revenue_values.empty else np.nan
+    total_cost_values = pd.Series(dtype=float)
+    if sales_filtered is not None:
+        if sales_total_cost:
+            total_cost_values = numeric(sales_filtered, sales_total_cost)
+        elif sales_unit_cost and sales_qty:
+            total_cost_values = numeric(sales_filtered, sales_unit_cost) * quantity_values
+    gross_profit = (revenue_values - total_cost_values).sum(min_count=1) if not revenue_values.empty and not total_cost_values.empty else np.nan
+
+    stock_values = numeric(inventory, inv_close) if inventory is not None and inv_close else pd.Series(dtype=float)
+    low_stock = np.nan
+    if inventory is not None and inv_close and inv_reorder:
+        reorder_values = numeric(inventory, inv_reorder)
+        low_stock = int(((stock_values <= reorder_values) & stock_values.notna() & reorder_values.notna()).sum())
+
+    k1, k2, k3, k4, k5 = st.columns(5)
+    k1.metric("Total revenue", money(total_revenue))
+    k2.metric("Units sold", f"{total_units:,.0f}" if pd.notna(total_units) else "—")
+    k3.metric("Sales records", f"{len(sales_filtered):,}" if sales_filtered is not None else "—")
+    k4.metric("Gross profit", money(gross_profit) if pd.notna(gross_profit) else "—")
+    k5.metric("Low-stock products", f"{low_stock:,}" if pd.notna(low_stock) else "—")
+    st.divider()
+
+    # Sales charts
+    st.subheader("Sales performance")
+    c1, c2 = st.columns(2, gap="large")
+    with c1:
+        st.markdown("**Revenue over time**")
+        if sales_filtered is not None and sales_date and sales_revenue:
+            trend_df = sales_filtered.copy()
+            trend_df["_dash_date"] = pd.to_datetime(trend_df[sales_date], errors="coerce")
+            trend_df["_dash_revenue"] = numeric(trend_df, sales_revenue)
+            trend_df = trend_df.dropna(subset=["_dash_date"])
+            if not trend_df.empty:
+                trend = trend_df.groupby(trend_df["_dash_date"].dt.to_period("M").astype(str))["_dash_revenue"].sum()
+                st.line_chart(trend, y_label="Revenue")
+            else:
+                st.info("No usable dates are available for the trend chart.")
+        else:
+            st.info("A sales date and revenue column are needed for this chart.")
+    with c2:
+        st.markdown("**Revenue by category**")
+        if sales_filtered is not None and sales_category and sales_revenue:
+            cat = (sales_filtered.assign(_dash_revenue=numeric(sales_filtered, sales_revenue))
+                   .groupby(sales_category, dropna=False)["_dash_revenue"].sum()
+                   .sort_values(ascending=False).head(12))
+            st.bar_chart(cat, y_label="Revenue")
+        else:
+            st.info("A category and revenue column are needed for this chart.")
+
+    c3, c4 = st.columns(2, gap="large")
+    with c3:
+        st.markdown("**Top 10 products by revenue**")
+        if sales_filtered is not None and sales_revenue and sales_product:
+            top_rev = (sales_filtered.assign(_dash_revenue=numeric(sales_filtered, sales_revenue))
+                       .groupby(sales_product, dropna=False)["_dash_revenue"].sum()
+                       .sort_values(ascending=False).head(10))
+            st.bar_chart(top_rev, y_label="Revenue")
+        else:
+            st.info("Product and revenue columns are needed for this chart.")
+    with c4:
+        st.markdown("**Top 10 products by units sold**")
+        if sales_filtered is not None and sales_qty and sales_product:
+            top_qty = (sales_filtered.assign(_dash_qty=numeric(sales_filtered, sales_qty))
+                       .groupby(sales_product, dropna=False)["_dash_qty"].sum()
+                       .sort_values(ascending=False).head(10))
+            st.bar_chart(top_qty, y_label="Units sold")
+        else:
+            st.info("Product and quantity columns are needed for this chart.")
+
+    if pd.notna(gross_profit) and sales_filtered is not None and sales_product:
+        st.markdown("**Estimated gross profit by product**")
+        profit_df = sales_filtered.copy()
+        profit_df["_dash_revenue"] = revenue_values
+        profit_df["_dash_cost"] = total_cost_values
+        profit_df["_dash_profit"] = profit_df["_dash_revenue"] - profit_df["_dash_cost"]
+        profit_by_product = profit_df.groupby(sales_product, dropna=False)["_dash_profit"].sum().sort_values(ascending=False).head(10)
+        st.bar_chart(profit_by_product, y_label="Gross profit")
+        st.caption("Profit is an estimate based on the cost fields available in your data.")
+
+    # Inventory charts and table
+    st.divider()
+    st.subheader("Inventory and stock health")
+    if inventory is not None and inv_close:
+        inv_dash = inventory.copy()
+        inv_dash["_dash_stock"] = numeric(inv_dash, inv_close)
+        left, right = st.columns(2, gap="large")
+        with left:
+            st.markdown("**Stock status distribution**")
+            if inv_reorder:
+                inv_dash["_dash_reorder"] = numeric(inv_dash, inv_reorder)
+                inv_dash["Stock status"] = np.select(
+                    [inv_dash["_dash_stock"].isna() | inv_dash["_dash_reorder"].isna(),
+                     inv_dash["_dash_stock"] <= inv_dash["_dash_reorder"]],
+                    ["Needs data review", "Low stock / reorder"], default="Healthy stock")
+                st.bar_chart(inv_dash["Stock status"].value_counts(), y_label="Products / records")
+            else:
+                st.info("Add a reorder-point column to see low-stock status.")
+        with right:
+            st.markdown("**Top 10 products by current stock**")
+            if inv_product:
+                stock_top = inv_dash.groupby(inv_product, dropna=False)["_dash_stock"].sum(min_count=1).sort_values(ascending=False).head(10)
+                st.bar_chart(stock_top, y_label="Units in stock")
+            else:
+                st.info("A product name column is needed for this chart.")
+        st.markdown("**Inventory details**")
+        st.dataframe(inv_dash.drop(columns=["_dash_stock", "_dash_reorder"], errors="ignore"), width="stretch", hide_index=True)
+    else:
+        st.info("Select an inventory dataset with a current-stock column to see stock charts and details.")
+
+    # The underlying entered records remain available on the same dashboard.
+    if sales_filtered is not None:
+        with st.expander("View all filtered sales records", expanded=False):
+            st.dataframe(sales_filtered, width="stretch", hide_index=True)
+            st.download_button("Download sales CSV", sales_filtered.to_csv(index=False).encode("utf-8"),
+                               "stocksight_dashboard_sales.csv", "text/csv", key="complete_dashboard_download")
+
+    recent_entries = load_saved_entries()
+    if recent_entries:
+        st.divider()
+        st.subheader("Recent saved entries")
+        st.caption(f"Your {len(recent_entries)} most recent submissions are retained on this computer.")
+        for entry_no, entry in enumerate(reversed(recent_entries), start=1):
+            products_entry = entry.get("products", [])
+            saved_at = entry.get("saved_at", "Saved entry")
+            with st.expander(f"{saved_at} · {len(products_entry)} products", expanded=(entry_no == 1)):
+                if products_entry:
+                    st.dataframe(pd.DataFrame(products_entry), width="stretch", hide_index=True)
 
 
 # ---------- Sales analysis ----------
@@ -843,7 +1124,7 @@ elif page == "Sales Analysis":
                 .sum().sort_values(ascending=False).head(10)
             )
             st.subheader("Top 10 products by revenue")
-            st.bar_chart(product_perf, horizontal=True, x_label="Revenue", y_label="Product")
+            st.bar_chart(product_perf, y_label="Revenue")
 
         if sales_date:
             trend_df = sales_filtered.copy()
@@ -866,7 +1147,7 @@ elif page == "Sales Analysis":
         st.metric("Units sold in selection", f"{numeric(sales_filtered, sales_qty).sum():,.0f}")
 
     with st.expander("View sales records", expanded=False):
-        st.dataframe(sales_filtered.head(2000), use_container_width=True, hide_index=True)
+        st.dataframe(sales_filtered.head(2000), width="stretch", hide_index=True)
         st.download_button(
             "Download sales CSV", sales_filtered.to_csv(index=False).encode("utf-8"),
             "stocksight_sales_filtered.csv", "text/csv", key="sales_download",
@@ -883,7 +1164,7 @@ elif page == "Inventory Health":
     st.caption(f"{len(inventory):,} inventory records loaded.")
     if not inv_close:
         show_empty_state("StockSight could not identify a stock-on-hand column.", "Open Data Explorer to inspect your column names.")
-        st.dataframe(inventory.head(500), use_container_width=True, hide_index=True)
+        st.dataframe(inventory.head(500), width="stretch", hide_index=True)
         st.stop()
 
     health = inventory.copy()
@@ -926,7 +1207,7 @@ elif page == "Inventory Health":
     st.subheader("Inventory records")
     st.dataframe(
         health_view.drop(columns=["_stock_numeric", "_reorder_numeric"], errors="ignore").head(2000),
-        use_container_width=True, hide_index=True,
+        width="stretch", hide_index=True,
     )
     st.download_button(
         "⬇️ Download inventory review CSV", health_view.to_csv(index=False).encode("utf-8"),
@@ -997,7 +1278,7 @@ elif page == "Data Explorer":
         "Missing %": [round(float(df[c].isna().mean() * 100), 2) for c in df.columns],
         "Unique values": [int(df[c].nunique(dropna=True)) for c in df.columns],
     })
-    st.dataframe(profile, use_container_width=True, hide_index=True)
+    st.dataframe(profile, width="stretch", hide_index=True)
 
     st.subheader("Filter and inspect rows")
     search = st.text_input(
@@ -1017,7 +1298,7 @@ elif page == "Data Explorer":
         default=df.columns.tolist(), key="explorer_columns",
     )
     if column_choice:
-        st.dataframe(view[column_choice].head(3000), use_container_width=True, hide_index=True)
+        st.dataframe(view[column_choice].head(3000), width="stretch", hide_index=True)
     else:
         st.warning("Select at least one column to display.")
 
@@ -1026,7 +1307,7 @@ elif page == "Data Explorer":
         f"{Path(selected_file).stem}_filtered.csv", "text/csv", key="explorer_download",
     )
     with st.expander("Raw data preview"):
-        st.dataframe(df.head(100), use_container_width=True, hide_index=True)
+        st.dataframe(df.head(100), width="stretch", hide_index=True)
 
 st.divider()
 st.caption("StockSight · Interactive retail analytics with a locally running AI Analyst. Validate data definitions before making purchasing decisions.")

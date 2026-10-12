@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -219,7 +220,7 @@ if not st.session_state.get("show_business_setup", False):
           <p>✓ Answer a few simple questions<br>✓ Add products, stock and pricing manually<br>✓ Get recommendations from the information you provide</p>
         </div>
         """, unsafe_allow_html=True)
-        if st.button("Start with business details →", type="primary", use_container_width=True, key="start_business_setup"):
+        if st.button("Start with business details →", type="primary", width="stretch", key="start_business_setup"):
             st.session_state["show_business_setup"] = True
             st.rerun()
         st.caption("No CSV file or technical skills needed.")
@@ -271,7 +272,7 @@ if not uploaded:
     ])
     edited_products = st.data_editor(
         st.session_state.get("product_entry_table", st.session_state.get("manual_products", starter)),
-        num_rows="dynamic", use_container_width=True, hide_index=True,
+        num_rows="dynamic", width="stretch", hide_index=True,
         column_config={
             "product_name": st.column_config.TextColumn("Product name", help="Required"),
             "category": st.column_config.TextColumn("Category"),
@@ -683,7 +684,7 @@ For general knowledge, definitions, brainstorming, and general business advice, 
 
     try:
         response = requests.post(
-            "http://localhost:11434/api/generate",
+            f"{os.getenv('STOCKSIGHT_OLLAMA_URL', 'http://localhost:11434').rstrip('/')}/api/generate",
             json={
                 "model": "llama3.2:3b",
                 "prompt": prompt,
@@ -695,7 +696,7 @@ For general knowledge, definitions, brainstorming, and general business advice, 
         response.raise_for_status()
         answer = response.json().get("response", "").strip()
     except requests.exceptions.ConnectionError as exc:
-        raise RuntimeError("Cannot connect to Ollama. Open the Ollama app and try again.") from exc
+        raise RuntimeError("Cannot connect to Ollama. Locally, open the Ollama app. For hosted deployments, set STOCKSIGHT_OLLAMA_URL to a reachable Ollama base URL, or disable the AI Analyst.") from exc
     except requests.exceptions.Timeout as exc:
         raise RuntimeError("Ollama took too long to respond. Please try again.") from exc
     except requests.exceptions.RequestException as exc:
@@ -712,11 +713,11 @@ if page == "AI Analyst":
     st.header("🤖 AI Business Analyst")
     st.write(
         "Ask questions about your uploaded retail data in plain English. "
-        "StockSight calculates summaries locally and uses Ollama running on your computer to answer."
+        "StockSight calculates summaries locally and uses Ollama to answer. Configure STOCKSIGHT_OLLAMA_URL for a hosted Ollama service when deploying."
     )
     st.info(
-        "Privacy note: the model runs locally through Ollama. This feature sends the question "
-        "and aggregate data summaries to your local Ollama service, not to OpenAI."
+        "Privacy note: the question and aggregate data summaries are sent to the Ollama endpoint configured by STOCKSIGHT_OLLAMA_URL. "
+        "If unset, the app uses http://localhost:11434. Do not send sensitive data to an endpoint you do not control."
     )
 
     if sales_filtered is None and inventory is None:
@@ -731,7 +732,7 @@ if page == "AI Analyst":
         if not quick.empty:
             quick = quick.rename(columns={"product": "Product", "revenue": "Revenue"})
             quick.insert(0, "Rank", range(1, len(quick) + 1))
-            st.dataframe(quick, use_container_width=True, hide_index=True)
+            st.dataframe(quick, width="stretch", hide_index=True)
         else:
             st.caption("Map a product field and a revenue field to see the top-product ranking.")
 
@@ -745,7 +746,7 @@ if page == "AI Analyst":
     suggestion_cols = st.columns(2)
     for idx, suggestion in enumerate(suggestions):
         with suggestion_cols[idx % 2]:
-            if st.button(suggestion, key=f"analyst_suggestion_{idx}", use_container_width=True):
+            if st.button(suggestion, key=f"analyst_suggestion_{idx}", width="stretch"):
                 st.session_state["analyst_question_input"] = suggestion
 
     if "analyst_messages" not in st.session_state:
@@ -851,7 +852,7 @@ elif page == "Overview":
     st.subheader("Explore the filtered sales")
     if sales_filtered is not None:
         st.caption(f"Showing {len(sales_filtered):,} sales rows after filters.")
-        st.dataframe(sales_filtered.head(500), use_container_width=True, hide_index=True)
+        st.dataframe(sales_filtered.head(500), width="stretch", hide_index=True)
         st.download_button(
             "⬇️ Download filtered sales CSV",
             sales_filtered.to_csv(index=False).encode("utf-8"),
@@ -903,7 +904,7 @@ elif page == "Sales Analysis":
         st.metric("Units sold in selection", f"{numeric(sales_filtered, sales_qty).sum():,.0f}")
 
     with st.expander("View sales records", expanded=False):
-        st.dataframe(sales_filtered.head(2000), use_container_width=True, hide_index=True)
+        st.dataframe(sales_filtered.head(2000), width="stretch", hide_index=True)
         st.download_button(
             "Download sales CSV", sales_filtered.to_csv(index=False).encode("utf-8"),
             "stocksight_sales_filtered.csv", "text/csv", key="sales_download",
@@ -920,7 +921,7 @@ elif page == "Inventory Health":
     st.caption(f"{len(inventory):,} inventory records loaded.")
     if not inv_close:
         show_empty_state("StockSight could not identify a stock-on-hand column.", "Open Data Explorer to inspect your column names.")
-        st.dataframe(inventory.head(500), use_container_width=True, hide_index=True)
+        st.dataframe(inventory.head(500), width="stretch", hide_index=True)
         st.stop()
 
     health = inventory.copy()
@@ -963,7 +964,7 @@ elif page == "Inventory Health":
     st.subheader("Inventory records")
     st.dataframe(
         health_view.drop(columns=["_stock_numeric", "_reorder_numeric"], errors="ignore").head(2000),
-        use_container_width=True, hide_index=True,
+        width="stretch", hide_index=True,
     )
     st.download_button(
         "⬇️ Download inventory review CSV", health_view.to_csv(index=False).encode("utf-8"),
@@ -1034,7 +1035,7 @@ elif page == "Data Explorer":
         "Missing %": [round(float(df[c].isna().mean() * 100), 2) for c in df.columns],
         "Unique values": [int(df[c].nunique(dropna=True)) for c in df.columns],
     })
-    st.dataframe(profile, use_container_width=True, hide_index=True)
+    st.dataframe(profile, width="stretch", hide_index=True)
 
     st.subheader("Filter and inspect rows")
     search = st.text_input(
@@ -1054,7 +1055,7 @@ elif page == "Data Explorer":
         default=df.columns.tolist(), key="explorer_columns",
     )
     if column_choice:
-        st.dataframe(view[column_choice].head(3000), use_container_width=True, hide_index=True)
+        st.dataframe(view[column_choice].head(3000), width="stretch", hide_index=True)
     else:
         st.warning("Select at least one column to display.")
 
@@ -1063,7 +1064,7 @@ elif page == "Data Explorer":
         f"{Path(selected_file).stem}_filtered.csv", "text/csv", key="explorer_download",
     )
     with st.expander("Raw data preview"):
-        st.dataframe(df.head(100), use_container_width=True, hide_index=True)
+        st.dataframe(df.head(100), width="stretch", hide_index=True)
 
 st.divider()
 st.caption("StockSight · Interactive retail analytics with a locally running AI Analyst. Validate data definitions before making purchasing decisions.")
