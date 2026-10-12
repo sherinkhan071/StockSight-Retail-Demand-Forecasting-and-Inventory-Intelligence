@@ -89,3 +89,9 @@ This project helps retail operations improve:
 ---
 
 This is a decision-support project for retail inventory management, not just a sales summary.
+
+## Live Tableau Dashboard
+
+Explore the interactive StockSight dashboard on Tableau Public:
+
+[Open StockSight Dashboard](https://public.tableau.com/app/profile/sherin.khan/viz/StockSightRetailDemandInventoryIntelligence/StockSightRetailDemandInventoryIntelligence?publish=yes)
