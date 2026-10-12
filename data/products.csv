@@ -1,0 +1,501 @@
+product_id,product_name,category,subcategory,brand,unit_cost,selling_price,supplier_id,lead_time_days
+1,Milton Air Fryer 1,Home Appliances,Kitchen Appliances,Milton,3942.52,7243.06,1019,9
+2,Logitech Electric Kettle 2,Home Appliances,Kitchen Appliances,Logitech,1801.8,2574.02,1003,8
+3,Logitech Mechanical Keyboard 3,Electronics,Electronics Accessories,Logitech,4195.72,6256.26,1021,3
+4,Adidas Desk Lamp 4,Home & Living,Home Products,Adidas,233.92,308.95,1027,13
+5,American Tourister Mixer Grinder 5,Home Appliances,Kitchen Appliances,American Tourister,4874.03,7357.32,1047,5
+6,JBL Pillow 6,Home & Living,Home Products,JBL,422.96,781.12,1021,11
+7,LG Mixer Grinder 7,Home Appliances,Kitchen Appliances,LG,4722.57,8533.49,1009,12
+8,LG Mechanical Keyboard 8,Electronics,Electronics Accessories,LG,1356.92,2598.42,1044,10
+9,Philips Electric Kettle 9,Home Appliances,Kitchen Appliances,Philips,1442.14,2734.69,1002,8
+10,LG Cotton T-Shirt 10,Fashion,Fashion & Apparel,LG,1087.3,2362.3,1026,14
+11,LG Cotton T-Shirt 11,Fashion,Fashion & Apparel,LG,3069.92,6537.97,1008,9
+12,Logitech Water Bottle 12,Home & Living,Home Products,Logitech,4253.76,8390.92,1047,7
+13,JBL Desk Lamp 13,Home & Living,Home Products,JBL,1548.49,2769.36,1041,3
+14,JBL Power Bank 14,Electronics,Electronics Accessories,JBL,3906.77,5777.5,1024,13
+15,Logitech Coffee Maker 15,Home Appliances,Kitchen Appliances,Logitech,3699.23,7376.79,1005,12
+16,JBL Mixer Grinder 16,Home Appliances,Kitchen Appliances,JBL,4591.81,9482.25,1012,4
+17,Puma Smart Watch 17,Electronics,Electronics Accessories,Puma,1692.72,2695.94,1035,14
+18,Milton Storage Box 18,Home & Living,Home Products,Milton,2893.97,4759.52,1047,5
+19,Portronics Headphones 19,Electronics,Electronics Accessories,Portronics,1332.73,2039.69,1027,11
+20,Portronics Mixer Grinder 20,Home Appliances,Kitchen Appliances,Portronics,2308.82,3420.63,1032,9
+21,LG Bluetooth Speaker 21,Electronics,Electronics Accessories,LG,4556.32,6945.49,1045,13
+22,Puma Bluetooth Speaker 22,Electronics,Electronics Accessories,Puma,1590.81,2298.88,1002,12
+23,JBL Webcam 23,Electronics,Electronics Accessories,JBL,706.37,1208.52,1044,14
+24,Milton Storage Box 24,Home & Living,Home Products,Milton,1756.86,2476.96,1025,9
+25,Philips Running Shoes 25,Fashion,Fashion & Apparel,Philips,1294.09,2179.76,1013,11
+26,Logitech Vacuum Cleaner 26,Home Appliances,Kitchen Appliances,Logitech,2763.63,4798.62,1033,5
+27,Logitech Hoodie 27,Fashion,Fashion & Apparel,Logitech,4725.97,7518.46,1032,10
+28,Philips Bluetooth Speaker 28,Electronics,Electronics Accessories,Philips,511.48,781.81,1012,9
+29,Philips Jeans 29,Fashion,Fashion & Apparel,Philips,910.82,2001.95,1049,4
+30,Adidas Hoodie 30,Fashion,Fashion & Apparel,Adidas,358.64,577.61,1001,5
+31,Nike Cotton T-Shirt 31,Fashion,Fashion & Apparel,Nike,2549.37,5575.69,1032,9
+32,Logitech Bedsheet 32,Home & Living,Home Products,Logitech,1340.66,2621.52,1024,7
+33,Adidas Desk Lamp 33,Home & Living,Home Products,Adidas,2114.36,4302.28,1016,3
+34,Milton Bluetooth Speaker 34,Electronics,Electronics Accessories,Milton,1095.29,1464.07,1020,14
+35,Sony Air Fryer 35,Home Appliances,Kitchen Appliances,Sony,3613.52,7330.21,1020,9
+36,Philips Water Bottle 36,Home & Living,Home Products,Philips,2108.35,3723.3,1040,3
+37,JBL Air Fryer 37,Home Appliances,Kitchen Appliances,JBL,744.67,1587.8,1030,12
+38,Portronics Air Fryer 38,Home Appliances,Kitchen Appliances,Portronics,4914.41,8673.8,1049,4
+39,American Tourister Smart Watch 39,Electronics,Electronics Accessories,American Tourister,2879.81,6031.4,1009,11
+40,Sony Electric Kettle 40,Home Appliances,Kitchen Appliances,Sony,4310.36,7172.69,1033,10
+41,Philips Bedsheet 41,Home & Living,Home Products,Philips,975.82,2057.71,1020,5
+42,JBL Storage Box 42,Home & Living,Home Products,JBL,3384.81,4415.67,1046,4
+43,Sony Sneakers 43,Fashion,Fashion & Apparel,Sony,3329.41,5000.25,1033,6
+44,Nike Webcam 44,Electronics,Electronics Accessories,Nike,1058.35,1724.92,1008,9
+45,Philips Coffee Maker 45,Home Appliances,Kitchen Appliances,Philips,2804.19,4929.58,1022,9
+46,Adidas Sneakers 46,Fashion,Fashion & Apparel,Adidas,4898.69,8514.26,1008,13
+47,Nike Mixer Grinder 47,Home Appliances,Kitchen Appliances,Nike,2612.66,4752.99,1033,7
+48,Sony Curtains 48,Home & Living,Home Products,Sony,2945.62,5866.79,1017,14
+49,Nike Storage Box 49,Home & Living,Home Products,Nike,4440.77,8761.4,1037,10
+50,Nike Wireless Mouse 50,Electronics,Electronics Accessories,Nike,2947.0,6431.23,1021,9
+51,Sony Smart Watch 51,Electronics,Electronics Accessories,Sony,1013.57,1825.56,1031,8
+52,Logitech Jeans 52,Fashion,Fashion & Apparel,Logitech,538.0,800.56,1047,8
+53,Milton Mixer Grinder 53,Home Appliances,Kitchen Appliances,Milton,1617.39,2572.13,1040,3
+54,Adidas USB-C Cable 54,Electronics,Electronics Accessories,Adidas,1925.56,3012.02,1026,5
+55,Logitech Running Shoes 55,Fashion,Fashion & Apparel,Logitech,4583.55,8068.0,1036,6
+56,American Tourister Smart Watch 56,Electronics,Electronics Accessories,American Tourister,4455.76,5903.24,1034,4
+57,Sony Storage Box 57,Home & Living,Home Products,Sony,2434.87,4354.47,1022,12
+58,Philips Sneakers 58,Fashion,Fashion & Apparel,Philips,379.27,773.84,1043,14
+59,Logitech Wireless Mouse 59,Electronics,Electronics Accessories,Logitech,3895.97,5821.51,1005,9
+60,LG Storage Box 60,Home & Living,Home Products,LG,2174.5,4195.83,1040,6
+61,Samsung Curtains 61,Home & Living,Home Products,Samsung,2678.24,4260.17,1017,10
+62,American Tourister Electric Kettle 62,Home Appliances,Kitchen Appliances,American Tourister,3771.4,5754.31,1026,7
+63,JBL Backpack 63,Fashion,Fashion & Apparel,JBL,3504.8,4739.8,1001,4
+64,Adidas Storage Box 64,Home & Living,Home Products,Adidas,3630.06,6875.98,1001,9
+65,Adidas Curtains 65,Home & Living,Home Products,Adidas,3704.19,4974.52,1026,5
+66,JBL Webcam 66,Electronics,Electronics Accessories,JBL,1841.02,2545.43,1047,3
+67,LG Sneakers 67,Fashion,Fashion & Apparel,LG,1041.59,1370.15,1026,7
+68,Philips Air Fryer 68,Home Appliances,Kitchen Appliances,Philips,2430.43,4580.87,1010,8
+69,Samsung Bluetooth Speaker 69,Electronics,Electronics Accessories,Samsung,1452.29,1907.98,1019,12
+70,Logitech Water Bottle 70,Home & Living,Home Products,Logitech,3361.73,4863.22,1024,9
+71,American Tourister Running Shoes 71,Fashion,Fashion & Apparel,American Tourister,3011.72,6463.78,1024,14
+72,American Tourister Jeans 72,Fashion,Fashion & Apparel,American Tourister,816.8,1658.17,1043,7
+73,Philips Bedsheet 73,Home & Living,Home Products,Philips,4813.71,10180.11,1044,14
+74,Samsung Vacuum Cleaner 74,Home Appliances,Kitchen Appliances,Samsung,387.02,718.47,1023,3
+75,Portronics Cap 75,Fashion,Fashion & Apparel,Portronics,3471.75,5577.58,1041,9
+76,Nike Desk Lamp 76,Home & Living,Home Products,Nike,1872.02,4011.71,1036,11
+77,JBL Headphones 77,Electronics,Electronics Accessories,JBL,2830.27,4758.03,1024,5
+78,LG USB-C Cable 78,Electronics,Electronics Accessories,LG,1985.69,3968.94,1024,9
+79,Nike Cap 79,Fashion,Fashion & Apparel,Nike,1345.26,2571.95,1023,11
+80,Philips Coffee Maker 80,Home Appliances,Kitchen Appliances,Philips,2764.77,4829.79,1025,8
+81,Sony USB-C Cable 81,Electronics,Electronics Accessories,Sony,2068.17,2708.79,1041,5
+82,Puma Water Bottle 82,Home & Living,Home Products,Puma,4792.64,9149.6,1019,12
+83,Nike Toaster 83,Home Appliances,Kitchen Appliances,Nike,1607.41,2565.1,1021,6
+84,JBL Power Bank 84,Electronics,Electronics Accessories,JBL,744.63,1591.9,1039,12
+85,Puma USB-C Cable 85,Electronics,Electronics Accessories,Puma,2820.4,5458.17,1047,14
+86,Portronics Mechanical Keyboard 86,Electronics,Electronics Accessories,Portronics,3167.45,4405.96,1007,10
+87,Samsung Running Shoes 87,Fashion,Fashion & Apparel,Samsung,4481.11,6416.7,1029,7
+88,Logitech Jeans 88,Fashion,Fashion & Apparel,Logitech,1996.5,3261.44,1017,9
+89,LG Headphones 89,Electronics,Electronics Accessories,LG,1881.05,3644.28,1019,14
+90,Milton Backpack 90,Fashion,Fashion & Apparel,Milton,1393.88,2226.34,1003,4
+91,Portronics Storage Box 91,Home & Living,Home Products,Portronics,3756.67,7477.56,1041,9
+92,American Tourister USB-C Cable 92,Electronics,Electronics Accessories,American Tourister,4818.43,7889.62,1049,11
+93,Adidas Water Bottle 93,Home & Living,Home Products,Adidas,2294.41,4639.06,1045,7
+94,Nike Storage Box 94,Home & Living,Home Products,Nike,4966.23,6785.94,1035,5
+95,Samsung Water Bottle 95,Home & Living,Home Products,Samsung,997.83,1491.88,1015,3
+96,Adidas Webcam 96,Electronics,Electronics Accessories,Adidas,2044.17,4013.5,1011,14
+97,Logitech Cap 97,Fashion,Fashion & Apparel,Logitech,2093.7,2922.97,1008,12
+98,Portronics Pillow 98,Home & Living,Home Products,Portronics,2063.69,3108.86,1028,14
+99,LG Wireless Mouse 99,Electronics,Electronics Accessories,LG,4933.81,9514.09,1017,11
+100,LG Headphones 100,Electronics,Electronics Accessories,LG,3093.35,4775.71,1013,5
+101,Samsung Webcam 101,Electronics,Electronics Accessories,Samsung,2199.87,4010.46,1025,4
+102,Samsung Cap 102,Fashion,Fashion & Apparel,Samsung,2847.62,4124.35,1033,8
+103,Philips Mechanical Keyboard 103,Electronics,Electronics Accessories,Philips,2008.35,3965.73,1025,8
+104,Philips Electric Kettle 104,Home Appliances,Kitchen Appliances,Philips,4223.98,7272.95,1035,3
+105,Puma Smart Watch 105,Electronics,Electronics Accessories,Puma,4350.67,8838.87,1031,7
+106,Nike Jeans 106,Fashion,Fashion & Apparel,Nike,3008.72,5877.56,1010,12
+107,Nike Coffee Maker 107,Home Appliances,Kitchen Appliances,Nike,2362.61,3346.03,1045,6
+108,Philips Running Shoes 108,Fashion,Fashion & Apparel,Philips,3833.6,5145.48,1031,10
+109,Portronics Mixer Grinder 109,Home Appliances,Kitchen Appliances,Portronics,2697.48,5381.71,1050,14
+110,American Tourister Webcam 110,Electronics,Electronics Accessories,American Tourister,2892.5,6042.4,1017,9
+111,Nike Toaster 111,Home Appliances,Kitchen Appliances,Nike,3268.93,6618.08,1039,8
+112,Samsung Pillow 112,Home & Living,Home Products,Samsung,1882.82,3447.3,1030,13
+113,LG Mixer Grinder 113,Home Appliances,Kitchen Appliances,LG,2827.74,4823.61,1015,14
+114,Portronics Backpack 114,Fashion,Fashion & Apparel,Portronics,4339.35,9349.43,1004,12
+115,Portronics Water Bottle 115,Home & Living,Home Products,Portronics,3890.81,5289.99,1005,4
+116,Samsung Jacket 116,Fashion,Fashion & Apparel,Samsung,1778.01,3324.99,1048,13
+117,Puma Coffee Maker 117,Home Appliances,Kitchen Appliances,Puma,814.62,1170.37,1016,10
+118,Logitech Pillow 118,Home & Living,Home Products,Logitech,2175.97,4541.0,1027,4
+119,Sony Mechanical Keyboard 119,Electronics,Electronics Accessories,Sony,396.17,575.26,1028,12
+120,Nike Webcam 120,Electronics,Electronics Accessories,Nike,2833.83,5047.0,1012,12
+121,Philips Cotton T-Shirt 121,Fashion,Fashion & Apparel,Philips,2616.4,5027.03,1009,12
+122,JBL Power Bank 122,Electronics,Electronics Accessories,JBL,3501.37,6164.13,1043,3
+123,Philips Hoodie 123,Fashion,Fashion & Apparel,Philips,605.68,1112.97,1015,10
+124,Portronics Sneakers 124,Fashion,Fashion & Apparel,Portronics,3847.79,6841.91,1002,12
+125,Logitech Jeans 125,Fashion,Fashion & Apparel,Logitech,838.96,1609.5,1023,13
+126,Samsung Air Fryer 126,Home Appliances,Kitchen Appliances,Samsung,2347.58,4177.18,1015,11
+127,American Tourister Toaster 127,Home Appliances,Kitchen Appliances,American Tourister,296.34,471.14,1039,8
+128,American Tourister Sneakers 128,Fashion,Fashion & Apparel,American Tourister,1319.44,2122.5,1025,6
+129,JBL Jeans 129,Fashion,Fashion & Apparel,JBL,2592.52,3573.08,1047,8
+130,Logitech Backpack 130,Fashion,Fashion & Apparel,Logitech,3015.37,5451.83,1042,11
+131,LG Webcam 131,Electronics,Electronics Accessories,LG,3300.4,5985.94,1045,8
+132,Philips Wireless Mouse 132,Electronics,Electronics Accessories,Philips,236.16,354.9,1006,9
+133,Milton Pillow 133,Home & Living,Home Products,Milton,621.86,1259.44,1024,9
+134,Sony Power Bank 134,Electronics,Electronics Accessories,Sony,2717.65,4536.73,1036,10
+135,Samsung Vacuum Cleaner 135,Home Appliances,Kitchen Appliances,Samsung,2964.79,6302.12,1015,8
+136,Logitech Running Shoes 136,Fashion,Fashion & Apparel,Logitech,3669.9,7482.1,1002,13
+137,Sony Desk Lamp 137,Home & Living,Home Products,Sony,4225.2,6272.6,1026,8
+138,LG Bedsheet 138,Home & Living,Home Products,LG,2636.53,4002.7,1047,3
+139,Adidas Sneakers 139,Fashion,Fashion & Apparel,Adidas,2989.94,4302.3,1036,13
+140,Adidas Coffee Maker 140,Home Appliances,Kitchen Appliances,Adidas,1815.7,2580.06,1023,12
+141,Logitech Desk Lamp 141,Home & Living,Home Products,Logitech,4087.4,6250.36,1037,11
+142,Milton Wireless Mouse 142,Electronics,Electronics Accessories,Milton,2471.2,4560.58,1035,3
+143,American Tourister Webcam 143,Electronics,Electronics Accessories,American Tourister,4832.13,6822.33,1011,11
+144,Sony Hoodie 144,Fashion,Fashion & Apparel,Sony,519.18,1021.23,1022,14
+145,Logitech Curtains 145,Home & Living,Home Products,Logitech,4174.12,8245.77,1030,5
+146,Nike Headphones 146,Electronics,Electronics Accessories,Nike,1331.32,2490.08,1004,11
+147,JBL Mechanical Keyboard 147,Electronics,Electronics Accessories,JBL,3478.31,5936.62,1040,5
+148,Philips Webcam 148,Electronics,Electronics Accessories,Philips,3788.53,6639.2,1025,3
+149,Puma Power Bank 149,Electronics,Electronics Accessories,Puma,2752.92,3743.85,1040,5
+150,Adidas Electric Kettle 150,Home Appliances,Kitchen Appliances,Adidas,4711.19,8786.07,1008,12
+151,Philips Pillow 151,Home & Living,Home Products,Philips,2760.61,5809.71,1036,8
+152,Nike Wireless Mouse 152,Electronics,Electronics Accessories,Nike,3937.15,5625.46,1004,8
+153,Nike Cotton T-Shirt 153,Fashion,Fashion & Apparel,Nike,4408.48,7088.28,1038,6
+154,LG Smart Watch 154,Electronics,Electronics Accessories,LG,2106.98,4250.97,1005,6
+155,Samsung Curtains 155,Home & Living,Home Products,Samsung,258.57,475.41,1036,6
+156,Milton Jeans 156,Fashion,Fashion & Apparel,Milton,1859.34,2721.03,1010,10
+157,Logitech Sneakers 157,Fashion,Fashion & Apparel,Logitech,2233.26,3481.96,1043,14
+158,Logitech Jacket 158,Fashion,Fashion & Apparel,Logitech,2628.27,4863.11,1047,10
+159,American Tourister Bedsheet 159,Home & Living,Home Products,American Tourister,690.62,1468.86,1005,10
+160,Portronics Smart Watch 160,Electronics,Electronics Accessories,Portronics,3901.98,6387.51,1009,8
+161,Logitech Toaster 161,Home Appliances,Kitchen Appliances,Logitech,4234.11,8974.69,1001,7
+162,LG Mechanical Keyboard 162,Electronics,Electronics Accessories,LG,798.38,1699.56,1040,7
+163,Nike Coffee Maker 163,Home Appliances,Kitchen Appliances,Nike,1808.95,3658.72,1026,11
+164,JBL Air Fryer 164,Home Appliances,Kitchen Appliances,JBL,4344.89,9257.5,1007,4
+165,Milton Mixer Grinder 165,Home Appliances,Kitchen Appliances,Milton,2370.65,3561.06,1044,13
+166,Logitech Vacuum Cleaner 166,Home Appliances,Kitchen Appliances,Logitech,2972.63,4307.23,1024,3
+167,Milton Headphones 167,Electronics,Electronics Accessories,Milton,3234.87,4243.45,1021,3
+168,LG Coffee Maker 168,Home Appliances,Kitchen Appliances,LG,2403.15,4329.45,1022,14
+169,Logitech Toaster 169,Home Appliances,Kitchen Appliances,Logitech,2610.54,4792.55,1013,9
+170,Logitech Electric Kettle 170,Home Appliances,Kitchen Appliances,Logitech,4510.66,6696.64,1029,3
+171,Logitech Headphones 171,Electronics,Electronics Accessories,Logitech,3019.78,4724.87,1047,4
+172,American Tourister Sneakers 172,Fashion,Fashion & Apparel,American Tourister,2509.22,4384.39,1004,3
+173,Puma Curtains 173,Home & Living,Home Products,Puma,4741.35,7756.75,1010,5
+174,American Tourister Cotton T-Shirt 174,Fashion,Fashion & Apparel,American Tourister,4043.6,8819.25,1032,4
+175,Logitech Toaster 175,Home Appliances,Kitchen Appliances,Logitech,330.06,495.02,1024,9
+176,Logitech Toaster 176,Home Appliances,Kitchen Appliances,Logitech,699.72,1413.38,1003,5
+177,Logitech Bluetooth Speaker 177,Electronics,Electronics Accessories,Logitech,677.32,1028.75,1014,10
+178,LG Jeans 178,Fashion,Fashion & Apparel,LG,4733.17,6754.11,1014,9
+179,Puma Desk Lamp 179,Home & Living,Home Products,Puma,3239.56,6357.03,1021,5
+180,Sony Curtains 180,Home & Living,Home Products,Sony,2998.6,5035.5,1002,3
+181,LG Toaster 181,Home Appliances,Kitchen Appliances,LG,1812.16,3701.51,1003,9
+182,LG Air Fryer 182,Home Appliances,Kitchen Appliances,LG,3195.91,5332.28,1030,11
+183,American Tourister Jacket 183,Fashion,Fashion & Apparel,American Tourister,1253.65,2729.31,1044,10
+184,Logitech Mechanical Keyboard 184,Electronics,Electronics Accessories,Logitech,4929.76,8498.7,1032,3
+185,Philips Jeans 185,Fashion,Fashion & Apparel,Philips,1489.65,2662.71,1045,11
+186,Adidas Coffee Maker 186,Home Appliances,Kitchen Appliances,Adidas,3296.26,5536.18,1026,12
+187,Samsung Headphones 187,Electronics,Electronics Accessories,Samsung,1507.08,1984.15,1018,7
+188,JBL Hoodie 188,Fashion,Fashion & Apparel,JBL,1515.47,2725.97,1025,8
+189,Puma Hoodie 189,Fashion,Fashion & Apparel,Puma,711.58,1014.72,1027,11
+190,Milton Vacuum Cleaner 190,Home Appliances,Kitchen Appliances,Milton,3067.58,5645.77,1007,12
+191,Portronics Wireless Mouse 191,Electronics,Electronics Accessories,Portronics,2141.03,4268.83,1046,4
+192,Milton Storage Box 192,Home & Living,Home Products,Milton,1084.98,1498.69,1026,7
+193,LG Electric Kettle 193,Home Appliances,Kitchen Appliances,LG,3651.42,5723.27,1035,8
+194,Logitech Backpack 194,Fashion,Fashion & Apparel,Logitech,4696.78,9202.47,1033,12
+195,Sony Pillow 195,Home & Living,Home Products,Sony,3056.37,4114.74,1045,13
+196,Portronics Running Shoes 196,Fashion,Fashion & Apparel,Portronics,2476.34,3986.77,1040,3
+197,Milton Wireless Mouse 197,Electronics,Electronics Accessories,Milton,3071.77,5264.13,1035,5
+198,American Tourister Jacket 198,Fashion,Fashion & Apparel,American Tourister,3534.54,5460.62,1034,14
+199,American Tourister Toaster 199,Home Appliances,Kitchen Appliances,American Tourister,4075.67,8827.45,1017,12
+200,Philips Power Bank 200,Electronics,Electronics Accessories,Philips,1088.64,1946.17,1024,5
+201,Philips Curtains 201,Home & Living,Home Products,Philips,3362.16,6465.6,1006,10
+202,JBL Mechanical Keyboard 202,Electronics,Electronics Accessories,JBL,3303.99,6356.41,1041,12
+203,Puma Mixer Grinder 203,Home Appliances,Kitchen Appliances,Puma,4996.9,8995.55,1022,12
+204,Nike Vacuum Cleaner 204,Home Appliances,Kitchen Appliances,Nike,3708.91,5464.48,1008,4
+205,Samsung Toaster 205,Home Appliances,Kitchen Appliances,Samsung,3776.31,5095.73,1035,4
+206,Puma Mixer Grinder 206,Home Appliances,Kitchen Appliances,Puma,377.64,693.59,1035,14
+207,Samsung Curtains 207,Home & Living,Home Products,Samsung,4447.99,7905.14,1026,9
+208,Puma Air Fryer 208,Home Appliances,Kitchen Appliances,Puma,1713.39,3059.33,1029,8
+209,Samsung Headphones 209,Electronics,Electronics Accessories,Samsung,2696.81,4541.79,1044,4
+210,Portronics Electric Kettle 210,Home Appliances,Kitchen Appliances,Portronics,4953.64,6440.79,1013,4
+211,Milton Bedsheet 211,Home & Living,Home Products,Milton,4990.08,8062.18,1049,7
+212,Logitech Water Bottle 212,Home & Living,Home Products,Logitech,1504.1,2494.49,1030,11
+213,Nike Air Fryer 213,Home Appliances,Kitchen Appliances,Nike,3714.9,4840.56,1045,10
+214,LG Cotton T-Shirt 214,Fashion,Fashion & Apparel,LG,3634.66,6652.15,1048,3
+215,JBL Webcam 215,Electronics,Electronics Accessories,JBL,725.44,1198.77,1004,14
+216,Nike Mixer Grinder 216,Home Appliances,Kitchen Appliances,Nike,3974.46,5486.62,1006,9
+217,Logitech Storage Box 217,Home & Living,Home Products,Logitech,2443.53,4525.59,1025,9
+218,Milton Pillow 218,Home & Living,Home Products,Milton,2127.59,4370.16,1045,12
+219,JBL Mixer Grinder 219,Home Appliances,Kitchen Appliances,JBL,1258.33,1846.97,1003,10
+220,Nike Jacket 220,Fashion,Fashion & Apparel,Nike,3222.93,4817.29,1009,5
+221,Philips Desk Lamp 221,Home & Living,Home Products,Philips,1034.7,1714.1,1050,4
+222,Logitech Running Shoes 222,Fashion,Fashion & Apparel,Logitech,4507.69,7739.9,1013,10
+223,JBL Power Bank 223,Electronics,Electronics Accessories,JBL,3046.11,5550.25,1034,13
+224,Sony Smart Watch 224,Electronics,Electronics Accessories,Sony,1510.2,2611.15,1003,11
+225,Portronics Hoodie 225,Fashion,Fashion & Apparel,Portronics,4085.68,7720.78,1005,13
+226,Logitech Mixer Grinder 226,Home Appliances,Kitchen Appliances,Logitech,1412.72,1843.0,1005,12
+227,Nike Sneakers 227,Fashion,Fashion & Apparel,Nike,1256.88,2406.84,1005,3
+228,Sony Cap 228,Fashion,Fashion & Apparel,Sony,4158.47,6707.73,1034,10
+229,Philips Toaster 229,Home Appliances,Kitchen Appliances,Philips,4417.42,8912.96,1040,14
+230,Milton USB-C Cable 230,Electronics,Electronics Accessories,Milton,969.92,1552.46,1045,11
+231,LG Mechanical Keyboard 231,Electronics,Electronics Accessories,LG,3169.33,6267.18,1007,7
+232,Portronics Toaster 232,Home Appliances,Kitchen Appliances,Portronics,2434.26,5090.44,1042,12
+233,Nike Bedsheet 233,Home & Living,Home Products,Nike,3768.84,5444.78,1036,4
+234,American Tourister Jacket 234,Fashion,Fashion & Apparel,American Tourister,230.65,359.43,1046,13
+235,Philips Wireless Mouse 235,Electronics,Electronics Accessories,Philips,756.05,1239.19,1024,5
+236,Sony Storage Box 236,Home & Living,Home Products,Sony,3852.93,6885.73,1032,4
+237,American Tourister Air Fryer 237,Home Appliances,Kitchen Appliances,American Tourister,1061.59,2100.17,1022,6
+238,Samsung Pillow 238,Home & Living,Home Products,Samsung,4747.03,6881.96,1012,8
+239,Adidas Mechanical Keyboard 239,Electronics,Electronics Accessories,Adidas,1860.24,3457.86,1018,4
+240,American Tourister Cap 240,Fashion,Fashion & Apparel,American Tourister,3798.33,5382.53,1012,9
+241,Philips USB-C Cable 241,Electronics,Electronics Accessories,Philips,1753.33,3050.41,1011,12
+242,Samsung Mixer Grinder 242,Home Appliances,Kitchen Appliances,Samsung,1513.41,3325.59,1017,5
+243,Puma Wireless Mouse 243,Electronics,Electronics Accessories,Puma,2729.72,5577.72,1011,6
+244,LG Desk Lamp 244,Home & Living,Home Products,LG,3341.65,5165.97,1017,14
+245,Nike Pillow 245,Home & Living,Home Products,Nike,4565.72,9458.46,1020,8
+246,Nike Coffee Maker 246,Home Appliances,Kitchen Appliances,Nike,4923.09,8213.69,1038,4
+247,Philips USB-C Cable 247,Electronics,Electronics Accessories,Philips,3328.0,5430.21,1015,14
+248,Logitech Bedsheet 248,Home & Living,Home Products,Logitech,964.38,1430.49,1029,7
+249,Samsung Bedsheet 249,Home & Living,Home Products,Samsung,3852.92,7180.3,1044,7
+250,Portronics Pillow 250,Home & Living,Home Products,Portronics,3159.92,6373.19,1025,9
+251,American Tourister Webcam 251,Electronics,Electronics Accessories,American Tourister,1388.19,2502.31,1048,11
+252,Adidas Storage Box 252,Home & Living,Home Products,Adidas,1764.44,3231.11,1008,13
+253,Philips Curtains 253,Home & Living,Home Products,Philips,255.78,349.19,1018,8
+254,JBL Bedsheet 254,Home & Living,Home Products,JBL,4328.59,8665.26,1008,13
+255,Logitech Jeans 255,Fashion,Fashion & Apparel,Logitech,900.43,1253.86,1046,8
+256,LG Hoodie 256,Fashion,Fashion & Apparel,LG,1860.88,3718.46,1050,14
+257,Philips Mechanical Keyboard 257,Electronics,Electronics Accessories,Philips,621.76,1004.49,1033,6
+258,Puma Sneakers 258,Fashion,Fashion & Apparel,Puma,837.04,1515.7,1046,12
+259,Samsung Backpack 259,Fashion,Fashion & Apparel,Samsung,397.68,756.92,1040,13
+260,Milton USB-C Cable 260,Electronics,Electronics Accessories,Milton,351.61,753.36,1039,11
+261,Logitech Hoodie 261,Fashion,Fashion & Apparel,Logitech,4747.28,8843.11,1020,13
+262,LG Electric Kettle 262,Home Appliances,Kitchen Appliances,LG,2854.41,5245.63,1022,12
+263,JBL Electric Kettle 263,Home Appliances,Kitchen Appliances,JBL,987.2,1673.05,1018,8
+264,JBL Pillow 264,Home & Living,Home Products,JBL,4384.56,6564.97,1046,6
+265,Puma Smart Watch 265,Electronics,Electronics Accessories,Puma,2281.55,3055.67,1044,4
+266,Sony Cotton T-Shirt 266,Fashion,Fashion & Apparel,Sony,1296.58,2848.2,1041,13
+267,Portronics Air Fryer 267,Home Appliances,Kitchen Appliances,Portronics,2135.65,3200.28,1015,3
+268,Philips Air Fryer 268,Home Appliances,Kitchen Appliances,Philips,4367.71,8536.48,1024,6
+269,American Tourister Bluetooth Speaker 269,Electronics,Electronics Accessories,American Tourister,1980.99,4336.16,1024,4
+270,JBL USB-C Cable 270,Electronics,Electronics Accessories,JBL,2305.35,4501.73,1036,4
+271,LG Mixer Grinder 271,Home Appliances,Kitchen Appliances,LG,2224.26,3445.7,1012,5
+272,Logitech Mechanical Keyboard 272,Electronics,Electronics Accessories,Logitech,4212.79,6370.64,1026,10
+273,Puma Storage Box 273,Home & Living,Home Products,Puma,3236.19,5293.0,1002,9
+274,Adidas Headphones 274,Electronics,Electronics Accessories,Adidas,2562.93,3902.08,1047,10
+275,LG Coffee Maker 275,Home Appliances,Kitchen Appliances,LG,3046.16,4408.32,1025,11
+276,Sony Desk Lamp 276,Home & Living,Home Products,Sony,3352.34,5339.17,1040,14
+277,Puma Pillow 277,Home & Living,Home Products,Puma,2378.19,3596.88,1003,8
+278,Portronics Cap 278,Fashion,Fashion & Apparel,Portronics,2354.13,4478.62,1041,3
+279,Logitech Bluetooth Speaker 279,Electronics,Electronics Accessories,Logitech,3162.3,6122.53,1020,14
+280,Nike USB-C Cable 280,Electronics,Electronics Accessories,Nike,1912.31,3404.22,1049,3
+281,Logitech Pillow 281,Home & Living,Home Products,Logitech,3009.7,6264.52,1044,13
+282,Samsung Bluetooth Speaker 282,Electronics,Electronics Accessories,Samsung,4936.13,6963.27,1037,6
+283,Philips Jacket 283,Fashion,Fashion & Apparel,Philips,786.13,1341.91,1005,3
+284,American Tourister USB-C Cable 284,Electronics,Electronics Accessories,American Tourister,912.05,1995.54,1024,13
+285,Samsung Vacuum Cleaner 285,Home Appliances,Kitchen Appliances,Samsung,1751.03,3809.87,1039,10
+286,Samsung Electric Kettle 286,Home Appliances,Kitchen Appliances,Samsung,1844.74,3281.83,1023,6
+287,Portronics Desk Lamp 287,Home & Living,Home Products,Portronics,3717.91,5376.63,1021,3
+288,Adidas Toaster 288,Home Appliances,Kitchen Appliances,Adidas,4367.08,6373.47,1034,3
+289,Milton Mixer Grinder 289,Home Appliances,Kitchen Appliances,Milton,3479.59,6080.43,1017,12
+290,American Tourister Water Bottle 290,Home & Living,Home Products,American Tourister,742.93,1497.72,1004,3
+291,Nike USB-C Cable 291,Electronics,Electronics Accessories,Nike,3401.46,6188.84,1028,4
+292,Adidas Cap 292,Fashion,Fashion & Apparel,Adidas,1726.94,3591.68,1025,11
+293,JBL Headphones 293,Electronics,Electronics Accessories,JBL,723.73,1364.56,1038,6
+294,Adidas Jeans 294,Fashion,Fashion & Apparel,Adidas,4526.6,9461.06,1023,5
+295,Philips USB-C Cable 295,Electronics,Electronics Accessories,Philips,777.0,1390.86,1025,7
+296,American Tourister Coffee Maker 296,Home Appliances,Kitchen Appliances,American Tourister,3127.19,5651.13,1019,14
+297,Philips Wireless Mouse 297,Electronics,Electronics Accessories,Philips,1340.21,2192.49,1044,8
+298,Sony Jeans 298,Fashion,Fashion & Apparel,Sony,1008.53,1894.34,1002,11
+299,Portronics Toaster 299,Home Appliances,Kitchen Appliances,Portronics,4767.1,9831.91,1028,7
+300,JBL Mechanical Keyboard 300,Electronics,Electronics Accessories,JBL,2024.94,3359.25,1037,14
+301,Puma Bedsheet 301,Home & Living,Home Products,Puma,4102.33,7984.41,1043,7
+302,Puma Electric Kettle 302,Home Appliances,Kitchen Appliances,Puma,4504.23,6144.46,1015,11
+303,Sony Bedsheet 303,Home & Living,Home Products,Sony,489.28,1047.54,1022,5
+304,LG Sneakers 304,Fashion,Fashion & Apparel,LG,1432.53,2229.57,1027,14
+305,LG Mixer Grinder 305,Home Appliances,Kitchen Appliances,LG,3644.65,6049.81,1013,6
+306,Milton Running Shoes 306,Fashion,Fashion & Apparel,Milton,791.47,1641.09,1039,9
+307,Portronics Coffee Maker 307,Home Appliances,Kitchen Appliances,Portronics,1089.1,2315.4,1020,6
+308,Adidas Backpack 308,Fashion,Fashion & Apparel,Adidas,2841.09,3804.42,1042,13
+309,Adidas Power Bank 309,Electronics,Electronics Accessories,Adidas,4132.11,8660.02,1009,12
+310,Portronics Power Bank 310,Electronics,Electronics Accessories,Portronics,1038.91,1687.91,1042,10
+311,Portronics Water Bottle 311,Home & Living,Home Products,Portronics,1427.1,2243.19,1024,5
+312,Puma Pillow 312,Home & Living,Home Products,Puma,3404.24,4718.21,1036,12
+313,Samsung Power Bank 313,Electronics,Electronics Accessories,Samsung,934.32,1412.42,1044,4
+314,Nike Power Bank 314,Electronics,Electronics Accessories,Nike,659.43,871.29,1015,5
+315,Portronics Bedsheet 315,Home & Living,Home Products,Portronics,1433.04,2678.09,1025,4
+316,Puma Bedsheet 316,Home & Living,Home Products,Puma,3536.69,5884.65,1039,11
+317,Puma USB-C Cable 317,Electronics,Electronics Accessories,Puma,1837.23,3742.14,1004,12
+318,Puma Cotton T-Shirt 318,Fashion,Fashion & Apparel,Puma,3908.59,6013.0,1037,3
+319,JBL Bedsheet 319,Home & Living,Home Products,JBL,1752.18,2635.26,1041,9
+320,Philips Curtains 320,Home & Living,Home Products,Philips,4192.94,7977.67,1044,13
+321,Logitech Curtains 321,Home & Living,Home Products,Logitech,4424.38,8343.45,1044,12
+322,Adidas Vacuum Cleaner 322,Home Appliances,Kitchen Appliances,Adidas,451.23,740.3,1038,3
+323,Puma Mixer Grinder 323,Home Appliances,Kitchen Appliances,Puma,2432.99,3294.58,1044,12
+324,JBL Curtains 324,Home & Living,Home Products,JBL,1018.29,1699.05,1030,11
+325,Philips Air Fryer 325,Home Appliances,Kitchen Appliances,Philips,1644.09,3589.23,1003,9
+326,Logitech Bedsheet 326,Home & Living,Home Products,Logitech,296.13,581.44,1044,3
+327,Nike Webcam 327,Electronics,Electronics Accessories,Nike,646.06,989.34,1008,9
+328,Nike Water Bottle 328,Home & Living,Home Products,Nike,4165.12,8346.17,1034,6
+329,Samsung Power Bank 329,Electronics,Electronics Accessories,Samsung,1840.04,3022.85,1002,13
+330,Philips Wireless Mouse 330,Electronics,Electronics Accessories,Philips,1666.52,2761.9,1023,12
+331,Puma Desk Lamp 331,Home & Living,Home Products,Puma,976.47,1960.41,1015,8
+332,LG Curtains 332,Home & Living,Home Products,LG,1200.85,2566.86,1042,8
+333,Sony Jacket 333,Fashion,Fashion & Apparel,Sony,3436.66,6114.62,1014,8
+334,JBL Air Fryer 334,Home Appliances,Kitchen Appliances,JBL,1748.13,2308.59,1027,4
+335,LG Mixer Grinder 335,Home Appliances,Kitchen Appliances,LG,2950.6,6312.68,1002,11
+336,Philips Webcam 336,Electronics,Electronics Accessories,Philips,4629.23,8047.25,1046,8
+337,LG Jacket 337,Fashion,Fashion & Apparel,LG,2612.32,4333.31,1025,7
+338,Nike Cap 338,Fashion,Fashion & Apparel,Nike,323.9,460.47,1004,14
+339,LG Pillow 339,Home & Living,Home Products,LG,2309.66,3222.2,1006,13
+340,American Tourister Cotton T-Shirt 340,Fashion,Fashion & Apparel,American Tourister,1951.03,3214.94,1005,5
+341,JBL Cotton T-Shirt 341,Fashion,Fashion & Apparel,JBL,479.19,1052.0,1031,10
+342,Puma Coffee Maker 342,Home Appliances,Kitchen Appliances,Puma,1348.06,1925.06,1009,14
+343,Sony Sneakers 343,Fashion,Fashion & Apparel,Sony,1053.28,2024.88,1033,6
+344,Nike Water Bottle 344,Home & Living,Home Products,Nike,3153.05,4968.03,1036,14
+345,Samsung Backpack 345,Fashion,Fashion & Apparel,Samsung,827.41,1735.86,1035,9
+346,Adidas Air Fryer 346,Home Appliances,Kitchen Appliances,Adidas,4172.18,8178.53,1022,7
+347,Samsung Backpack 347,Fashion,Fashion & Apparel,Samsung,842.26,1412.24,1038,7
+348,Portronics Backpack 348,Fashion,Fashion & Apparel,Portronics,1110.54,2062.33,1013,7
+349,Nike Cotton T-Shirt 349,Fashion,Fashion & Apparel,Nike,1154.51,1568.0,1032,6
+350,Philips USB-C Cable 350,Electronics,Electronics Accessories,Philips,2830.21,4836.66,1026,6
+351,American Tourister Hoodie 351,Fashion,Fashion & Apparel,American Tourister,3328.21,6754.99,1029,6
+352,Portronics Webcam 352,Electronics,Electronics Accessories,Portronics,3968.08,8344.38,1041,3
+353,JBL Water Bottle 353,Home & Living,Home Products,JBL,3503.05,5933.62,1029,3
+354,Portronics Cotton T-Shirt 354,Fashion,Fashion & Apparel,Portronics,1414.68,2833.68,1028,13
+355,Logitech Mixer Grinder 355,Home Appliances,Kitchen Appliances,Logitech,4496.57,8422.09,1015,3
+356,Sony Curtains 356,Home & Living,Home Products,Sony,707.33,1548.66,1023,7
+357,Logitech Curtains 357,Home & Living,Home Products,Logitech,607.0,1180.43,1045,5
+358,Logitech Bedsheet 358,Home & Living,Home Products,Logitech,370.74,651.66,1040,12
+359,LG Vacuum Cleaner 359,Home Appliances,Kitchen Appliances,LG,1878.58,3751.88,1007,5
+360,Milton Bedsheet 360,Home & Living,Home Products,Milton,2178.23,3909.17,1032,10
+361,Adidas Desk Lamp 361,Home & Living,Home Products,Adidas,596.56,1051.85,1017,10
+362,JBL Water Bottle 362,Home & Living,Home Products,JBL,2033.31,3019.71,1049,6
+363,JBL Hoodie 363,Fashion,Fashion & Apparel,JBL,3290.74,5848.54,1050,12
+364,American Tourister Bluetooth Speaker 364,Electronics,Electronics Accessories,American Tourister,2476.81,3473.88,1013,7
+365,Samsung Pillow 365,Home & Living,Home Products,Samsung,814.86,1307.39,1040,4
+366,JBL Coffee Maker 366,Home Appliances,Kitchen Appliances,JBL,2004.77,3598.73,1025,4
+367,LG Hoodie 367,Fashion,Fashion & Apparel,LG,783.21,1157.37,1046,3
+368,Sony Curtains 368,Home & Living,Home Products,Sony,3422.98,5426.21,1039,3
+369,Samsung Water Bottle 369,Home & Living,Home Products,Samsung,3253.14,4876.32,1008,10
+370,Puma Backpack 370,Fashion,Fashion & Apparel,Puma,3349.58,4889.33,1022,8
+371,Adidas Coffee Maker 371,Home Appliances,Kitchen Appliances,Adidas,2789.87,5454.62,1002,7
+372,Milton Air Fryer 372,Home Appliances,Kitchen Appliances,Milton,4832.62,8406.61,1023,10
+373,Adidas Curtains 373,Home & Living,Home Products,Adidas,2802.74,5132.69,1003,8
+374,Puma Toaster 374,Home Appliances,Kitchen Appliances,Puma,2970.43,6206.49,1037,10
+375,Logitech Cotton T-Shirt 375,Fashion,Fashion & Apparel,Logitech,1384.06,2704.2,1001,6
+376,Portronics Bedsheet 376,Home & Living,Home Products,Portronics,3356.29,5302.39,1021,9
+377,Samsung Electric Kettle 377,Home Appliances,Kitchen Appliances,Samsung,1905.85,3822.02,1036,8
+378,Portronics Cotton T-Shirt 378,Fashion,Fashion & Apparel,Portronics,369.49,728.32,1014,11
+379,JBL Jacket 379,Fashion,Fashion & Apparel,JBL,3456.22,6845.52,1031,9
+380,Sony Cap 380,Fashion,Fashion & Apparel,Sony,4982.4,8128.68,1004,6
+381,Adidas Cap 381,Fashion,Fashion & Apparel,Adidas,3046.61,5034.14,1021,8
+382,Portronics Curtains 382,Home & Living,Home Products,Portronics,3174.03,5141.75,1045,6
+383,Puma Power Bank 383,Electronics,Electronics Accessories,Puma,2508.67,4711.52,1024,7
+384,Puma Desk Lamp 384,Home & Living,Home Products,Puma,3574.13,4816.22,1024,4
+385,Sony Cotton T-Shirt 385,Fashion,Fashion & Apparel,Sony,1495.14,3053.89,1049,5
+386,American Tourister Cap 386,Fashion,Fashion & Apparel,American Tourister,3967.51,7684.72,1031,6
+387,LG Bedsheet 387,Home & Living,Home Products,LG,787.41,1544.86,1033,4
+388,Philips Air Fryer 388,Home Appliances,Kitchen Appliances,Philips,3071.48,6026.54,1011,11
+389,Philips Storage Box 389,Home & Living,Home Products,Philips,2221.99,4160.81,1048,13
+390,American Tourister Vacuum Cleaner 390,Home Appliances,Kitchen Appliances,American Tourister,2042.4,3706.31,1016,7
+391,Portronics Bluetooth Speaker 391,Electronics,Electronics Accessories,Portronics,1805.65,2389.92,1049,8
+392,Philips Webcam 392,Electronics,Electronics Accessories,Philips,4662.16,9344.48,1019,12
+393,Portronics Vacuum Cleaner 393,Home Appliances,Kitchen Appliances,Portronics,4389.11,9031.65,1037,6
+394,Portronics Headphones 394,Electronics,Electronics Accessories,Portronics,4699.3,9095.11,1026,6
+395,Puma Backpack 395,Fashion,Fashion & Apparel,Puma,2583.01,4373.46,1036,8
+396,American Tourister Webcam 396,Electronics,Electronics Accessories,American Tourister,830.48,1377.73,1020,10
+397,Nike Bluetooth Speaker 397,Electronics,Electronics Accessories,Nike,531.0,717.57,1030,8
+398,Puma Bedsheet 398,Home & Living,Home Products,Puma,4550.02,6936.92,1016,8
+399,JBL Mixer Grinder 399,Home Appliances,Kitchen Appliances,JBL,3928.21,5337.77,1045,6
+400,LG Bedsheet 400,Home & Living,Home Products,LG,3174.56,5732.6,1021,6
+401,Milton Running Shoes 401,Fashion,Fashion & Apparel,Milton,1867.25,3939.62,1018,10
+402,Logitech Air Fryer 402,Home Appliances,Kitchen Appliances,Logitech,2888.81,6191.12,1042,12
+403,JBL Storage Box 403,Home & Living,Home Products,JBL,2573.51,5614.36,1005,5
+404,Nike Mixer Grinder 404,Home Appliances,Kitchen Appliances,Nike,2913.59,5004.21,1025,7
+405,JBL Pillow 405,Home & Living,Home Products,JBL,1078.47,1423.4,1004,12
+406,Adidas Power Bank 406,Electronics,Electronics Accessories,Adidas,2893.87,5125.19,1034,14
+407,JBL Jeans 407,Fashion,Fashion & Apparel,JBL,4000.16,7176.11,1034,8
+408,Samsung Sneakers 408,Fashion,Fashion & Apparel,Samsung,2526.54,3661.45,1002,8
+409,Samsung Water Bottle 409,Home & Living,Home Products,Samsung,668.3,1387.25,1039,8
+410,American Tourister Storage Box 410,Home & Living,Home Products,American Tourister,1908.67,4161.39,1049,9
+411,Portronics Bluetooth Speaker 411,Electronics,Electronics Accessories,Portronics,1785.03,3536.28,1022,10
+412,Adidas Curtains 412,Home & Living,Home Products,Adidas,975.78,1492.89,1041,10
+413,Portronics Hoodie 413,Fashion,Fashion & Apparel,Portronics,2878.31,5173.08,1003,10
+414,Portronics Water Bottle 414,Home & Living,Home Products,Portronics,2589.5,3612.16,1023,11
+415,Milton Mixer Grinder 415,Home Appliances,Kitchen Appliances,Milton,3922.94,8505.05,1012,12
+416,American Tourister Pillow 416,Home & Living,Home Products,American Tourister,3835.91,5941.05,1008,9
+417,Logitech Power Bank 417,Electronics,Electronics Accessories,Logitech,2696.91,4592.41,1006,14
+418,Sony Backpack 418,Fashion,Fashion & Apparel,Sony,1942.88,4094.56,1043,10
+419,American Tourister Running Shoes 419,Fashion,Fashion & Apparel,American Tourister,1169.68,1714.52,1037,14
+420,Nike Bedsheet 420,Home & Living,Home Products,Nike,2313.55,4288.79,1019,11
+421,Puma Bedsheet 421,Home & Living,Home Products,Puma,4842.21,8115.47,1021,4
+422,Adidas Pillow 422,Home & Living,Home Products,Adidas,4902.96,9269.15,1027,7
+423,Philips USB-C Cable 423,Electronics,Electronics Accessories,Philips,340.95,695.76,1026,7
+424,American Tourister Toaster 424,Home Appliances,Kitchen Appliances,American Tourister,4319.25,8798.99,1050,8
+425,American Tourister Air Fryer 425,Home Appliances,Kitchen Appliances,American Tourister,4942.71,10434.88,1044,14
+426,Logitech Headphones 426,Electronics,Electronics Accessories,Logitech,2572.22,5261.28,1028,12
+427,American Tourister Curtains 427,Home & Living,Home Products,American Tourister,4164.7,5791.32,1021,5
+428,JBL Desk Lamp 428,Home & Living,Home Products,JBL,3750.42,5521.12,1011,11
+429,Philips Vacuum Cleaner 429,Home Appliances,Kitchen Appliances,Philips,4238.95,7308.62,1015,13
+430,LG Coffee Maker 430,Home Appliances,Kitchen Appliances,LG,3748.61,5231.97,1035,10
+431,Puma Pillow 431,Home & Living,Home Products,Puma,1002.23,1893.97,1001,10
+432,LG Electric Kettle 432,Home Appliances,Kitchen Appliances,LG,4358.66,6511.74,1015,7
+433,Nike Coffee Maker 433,Home Appliances,Kitchen Appliances,Nike,2159.87,4283.72,1036,14
+434,JBL Power Bank 434,Electronics,Electronics Accessories,JBL,3984.55,7564.61,1018,5
+435,Milton Webcam 435,Electronics,Electronics Accessories,Milton,200.9,291.74,1034,10
+436,LG Sneakers 436,Fashion,Fashion & Apparel,LG,2031.74,2876.87,1019,13
+437,JBL Water Bottle 437,Home & Living,Home Products,JBL,2222.93,2944.18,1038,9
+438,JBL Cap 438,Fashion,Fashion & Apparel,JBL,1602.65,3397.13,1042,5
+439,LG Bluetooth Speaker 439,Electronics,Electronics Accessories,LG,4912.63,9133.61,1009,13
+440,American Tourister Water Bottle 440,Home & Living,Home Products,American Tourister,3248.43,5538.11,1038,7
+441,Logitech Bluetooth Speaker 441,Electronics,Electronics Accessories,Logitech,1463.92,1963.87,1033,10
+442,Milton Water Bottle 442,Home & Living,Home Products,Milton,556.36,836.61,1014,11
+443,LG Bedsheet 443,Home & Living,Home Products,LG,4410.75,9216.42,1046,8
+444,Puma Smart Watch 444,Electronics,Electronics Accessories,Puma,2750.32,5650.08,1048,14
+445,Samsung Electric Kettle 445,Home Appliances,Kitchen Appliances,Samsung,2952.08,5588.12,1048,6
+446,American Tourister USB-C Cable 446,Electronics,Electronics Accessories,American Tourister,751.68,1040.68,1009,6
+447,Samsung Coffee Maker 447,Home Appliances,Kitchen Appliances,Samsung,4419.1,8018.88,1045,9
+448,Adidas Air Fryer 448,Home Appliances,Kitchen Appliances,Adidas,2286.06,4564.1,1041,5
+449,Adidas Hoodie 449,Fashion,Fashion & Apparel,Adidas,3114.03,5817.56,1020,11
+450,LG USB-C Cable 450,Electronics,Electronics Accessories,LG,3446.85,4889.44,1004,8
+451,Sony Curtains 451,Home & Living,Home Products,Sony,3330.68,7179.21,1034,13
+452,Philips Coffee Maker 452,Home Appliances,Kitchen Appliances,Philips,1491.0,2484.42,1022,11
+453,American Tourister Running Shoes 453,Fashion,Fashion & Apparel,American Tourister,3099.54,6560.62,1019,14
+454,JBL Running Shoes 454,Fashion,Fashion & Apparel,JBL,1790.47,3104.38,1040,5
+455,LG Curtains 455,Home & Living,Home Products,LG,1193.56,2106.53,1038,3
+456,Logitech Running Shoes 456,Fashion,Fashion & Apparel,Logitech,376.26,525.72,1026,9
+457,Philips Headphones 457,Electronics,Electronics Accessories,Philips,1248.85,2069.49,1041,11
+458,Philips Curtains 458,Home & Living,Home Products,Philips,3161.92,4434.45,1039,9
+459,Milton Power Bank 459,Electronics,Electronics Accessories,Milton,415.3,708.31,1046,3
+460,Sony Pillow 460,Home & Living,Home Products,Sony,2172.9,4599.7,1045,14
+461,Philips Smart Watch 461,Electronics,Electronics Accessories,Philips,4154.19,8971.2,1005,10
+462,Puma USB-C Cable 462,Electronics,Electronics Accessories,Puma,3644.35,7458.63,1049,6
+463,Samsung Cotton T-Shirt 463,Fashion,Fashion & Apparel,Samsung,3393.4,6855.75,1036,4
+464,American Tourister USB-C Cable 464,Electronics,Electronics Accessories,American Tourister,2838.0,5989.0,1012,12
+465,Puma Coffee Maker 465,Home Appliances,Kitchen Appliances,Puma,2180.84,4103.22,1010,4
+466,Portronics Electric Kettle 466,Home Appliances,Kitchen Appliances,Portronics,2610.34,3719.69,1009,11
+467,Sony Air Fryer 467,Home Appliances,Kitchen Appliances,Sony,3675.07,5176.35,1002,8
+468,Logitech Vacuum Cleaner 468,Home Appliances,Kitchen Appliances,Logitech,4136.06,7963.55,1012,5
+469,Puma Coffee Maker 469,Home Appliances,Kitchen Appliances,Puma,2970.56,3978.66,1021,3
+470,Puma Coffee Maker 470,Home Appliances,Kitchen Appliances,Puma,4120.27,5606.23,1021,8
+471,LG Mixer Grinder 471,Home Appliances,Kitchen Appliances,LG,3430.24,5309.47,1038,12
+472,American Tourister Hoodie 472,Fashion,Fashion & Apparel,American Tourister,4032.23,8226.48,1028,14
+473,Puma Coffee Maker 473,Home Appliances,Kitchen Appliances,Puma,1730.56,3156.5,1036,14
+474,Puma Smart Watch 474,Electronics,Electronics Accessories,Puma,2656.07,3848.82,1007,6
+475,Philips Smart Watch 475,Electronics,Electronics Accessories,Philips,1860.21,2676.87,1029,12
+476,American Tourister Desk Lamp 476,Home & Living,Home Products,American Tourister,232.21,382.52,1027,13
+477,Adidas Wireless Mouse 477,Electronics,Electronics Accessories,Adidas,4266.27,7585.33,1048,6
+478,Adidas Pillow 478,Home & Living,Home Products,Adidas,2379.21,4566.77,1045,4
+479,Logitech Webcam 479,Electronics,Electronics Accessories,Logitech,4891.77,8701.1,1045,6
+480,Adidas Jeans 480,Fashion,Fashion & Apparel,Adidas,4643.06,7766.61,1050,8
+481,Nike Toaster 481,Home Appliances,Kitchen Appliances,Nike,1588.37,3351.58,1037,12
+482,Sony Curtains 482,Home & Living,Home Products,Sony,4464.34,8226.21,1009,3
+483,Milton Headphones 483,Electronics,Electronics Accessories,Milton,4813.45,7944.76,1045,8
+484,Nike Curtains 484,Home & Living,Home Products,Nike,2493.82,4436.59,1045,8
+485,Puma USB-C Cable 485,Electronics,Electronics Accessories,Puma,2314.12,3638.03,1032,5
+486,Nike Running Shoes 486,Fashion,Fashion & Apparel,Nike,1843.75,2845.32,1044,13
+487,Sony Air Fryer 487,Home Appliances,Kitchen Appliances,Sony,993.16,1812.21,1035,4
+488,Sony Air Fryer 488,Home Appliances,Kitchen Appliances,Sony,3955.46,7757.13,1018,10
+489,Logitech Running Shoes 489,Fashion,Fashion & Apparel,Logitech,3179.17,4708.93,1021,10
+490,Philips Curtains 490,Home & Living,Home Products,Philips,3612.25,7644.42,1027,7
+491,Adidas Jeans 491,Fashion,Fashion & Apparel,Adidas,2760.26,5749.54,1021,8
+492,Nike Air Fryer 492,Home Appliances,Kitchen Appliances,Nike,4012.21,6211.67,1046,12
+493,Philips Storage Box 493,Home & Living,Home Products,Philips,4755.74,8377.77,1044,14
+494,Puma Storage Box 494,Home & Living,Home Products,Puma,2001.58,3116.87,1033,10
+495,Milton Electric Kettle 495,Home Appliances,Kitchen Appliances,Milton,4609.93,7495.94,1017,5
+496,Milton Webcam 496,Electronics,Electronics Accessories,Milton,2156.4,4409.34,1047,6
+497,Sony Toaster 497,Home Appliances,Kitchen Appliances,Sony,1162.28,1625.26,1045,3
+498,Philips Wireless Mouse 498,Electronics,Electronics Accessories,Philips,4486.83,6085.09,1038,5
+499,Puma Toaster 499,Home Appliances,Kitchen Appliances,Puma,291.76,504.5,1029,8
+500,Adidas Electric Kettle 500,Home Appliances,Kitchen Appliances,Adidas,2730.69,5104.45,1021,14
