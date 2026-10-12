@@ -1,0 +1,51 @@
+store_id,store_name,city,state,region,store_type
+101,Mumbai Store 101,Mumbai,Maharashtra,West,Medium
+102,Pune Store 102,Pune,Maharashtra,West,Large
+103,Jaipur Store 103,Jaipur,Rajasthan,North,Small
+104,Pune Store 104,Pune,Maharashtra,West,Small
+105,Ahmedabad Store 105,Ahmedabad,Gujarat,West,Small
+106,Ahmedabad Store 106,Ahmedabad,Gujarat,West,Large
+107,Kolkata Store 107,Kolkata,West Bengal,East,Large
+108,Bangalore Store 108,Bangalore,Karnataka,South,Small
+109,Delhi Store 109,Delhi,Delhi,North,Large
+110,Ahmedabad Store 110,Ahmedabad,Gujarat,West,Small
+111,Jaipur Store 111,Jaipur,Rajasthan,North,Small
+112,Bangalore Store 112,Bangalore,Karnataka,South,Medium
+113,Ahmedabad Store 113,Ahmedabad,Gujarat,West,Medium
+114,Mumbai Store 114,Mumbai,Maharashtra,West,Large
+115,Bangalore Store 115,Bangalore,Karnataka,South,Medium
+116,Chennai Store 116,Chennai,Tamil Nadu,South,Medium
+117,Ahmedabad Store 117,Ahmedabad,Gujarat,West,Large
+118,Mumbai Store 118,Mumbai,Maharashtra,West,Large
+119,Pune Store 119,Pune,Maharashtra,West,Medium
+120,Mumbai Store 120,Mumbai,Maharashtra,West,Large
+121,Kolkata Store 121,Kolkata,West Bengal,East,Small
+122,Chennai Store 122,Chennai,Tamil Nadu,South,Large
+123,Mumbai Store 123,Mumbai,Maharashtra,West,Medium
+124,Ahmedabad Store 124,Ahmedabad,Gujarat,West,Large
+125,Mumbai Store 125,Mumbai,Maharashtra,West,Large
+126,Ahmedabad Store 126,Ahmedabad,Gujarat,West,Large
+127,Ahmedabad Store 127,Ahmedabad,Gujarat,West,Medium
+128,Chennai Store 128,Chennai,Tamil Nadu,South,Medium
+129,Hyderabad Store 129,Hyderabad,Telangana,South,Small
+130,Delhi Store 130,Delhi,Delhi,North,Medium
+131,Hyderabad Store 131,Hyderabad,Telangana,South,Large
+132,Pune Store 132,Pune,Maharashtra,West,Medium
+133,Jaipur Store 133,Jaipur,Rajasthan,North,Small
+134,Delhi Store 134,Delhi,Delhi,North,Medium
+135,Lucknow Store 135,Lucknow,Uttar Pradesh,North,Medium
+136,Ahmedabad Store 136,Ahmedabad,Gujarat,West,Medium
+137,Bangalore Store 137,Bangalore,Karnataka,South,Medium
+138,Mumbai Store 138,Mumbai,Maharashtra,West,Medium
+139,Bangalore Store 139,Bangalore,Karnataka,South,Medium
+140,Chennai Store 140,Chennai,Tamil Nadu,South,Medium
+141,Bangalore Store 141,Bangalore,Karnataka,South,Large
+142,Kolkata Store 142,Kolkata,West Bengal,East,Medium
+143,Kolkata Store 143,Kolkata,West Bengal,East,Large
+144,Mumbai Store 144,Mumbai,Maharashtra,West,Large
+145,Mumbai Store 145,Mumbai,Maharashtra,West,Medium
+146,Jaipur Store 146,Jaipur,Rajasthan,North,Medium
+147,Jaipur Store 147,Jaipur,Rajasthan,North,Large
+148,Lucknow Store 148,Lucknow,Uttar Pradesh,North,Small
+149,Mumbai Store 149,Mumbai,Maharashtra,West,Large
+150,Chennai Store 150,Chennai,Tamil Nadu,South,Small

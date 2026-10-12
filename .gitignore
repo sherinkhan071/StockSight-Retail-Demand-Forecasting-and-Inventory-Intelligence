@@ -1,10 +1,20 @@
+# Python virtual environment
 .venv/
+venv/
 __pycache__/
+*.py[cod]
+
+# Secrets and environment variables
 .env
+.env.*
+!.env.example
 secrets.toml
 .streamlit/secrets.toml
-.venv/
-__pycache__/
-.env
-secrets.toml
+
+# Generated files
+.DS_Store
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Streamlit cache
 .streamlit/secrets.toml
